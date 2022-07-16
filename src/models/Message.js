@@ -3,12 +3,12 @@ const ObjectId = mongoose.SchemaTypes.ObjectId
 
 const MessageSchema = new mongoose.Schema(
     {
-        fullName: {
-            type: String,
-        },
-        userId: { type: ObjectId, required: true },
-        conversationId: { type: ObjectId, required: true },
-        text: { type: String, default: null },
+        conversationId: ObjectId,
+        receiverId: ObjectId,
+        receiverName: String,
+        senderId: ObjectId,
+        senderName: String,
+        text: String,
     },
     { timestamps: true }
 )
