@@ -3,16 +3,20 @@ import Message from '../../models/Message'
 export const create = async (request, response) => {
     const { id, name } = request.user
     const { receiverId, reveiverName, text } = request.body
+    try {
+        const data = await Message.create({
+            receiverId,
+            reveiverName,
+            senderId: id,
+            senderName: name,
+            text,
+        })
 
-    const data = await Message.create({
-        receiverId,
-        reveiverName,
-        senderId: id,
-        senderName: name,
-        text,
-    })
-
-    return response.json({
-        data,
-    })
+        return response.json({
+            data,
+        })
+    } catch (error) {
+        // eslint-disable-next-line no-console
+        console.log(error)
+    }
 }
