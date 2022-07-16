@@ -15,4 +15,4 @@ const UserSchema = new mongoose.Schema(
     { timestamps: true }
 )
 // Compile model from schema
-export const UserModel = mongoose.model('users', UserSchema)
+export default mongoose.model('users', UserSchema)

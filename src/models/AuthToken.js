@@ -5,9 +5,7 @@ const authTokenSchema = new Schema(
     {
         userId: { type: ObjectId, required: true },
         revoked: { type: mongoose.Schema.Types.Boolean, default: false },
-        scopes: { type: Array },
         revokedAt: { type: Date, default: Date.now },
-        updatedAt: { type: Date, default: Date.now },
         expiresAt: {
             type: Date,
             default: Date.now(),
@@ -17,4 +15,4 @@ const authTokenSchema = new Schema(
     { timestamps: true }
 )
 // oauthTokenSchema.set('toJSON', { virtuals: true })
-export const AuthToken = mongoose.model('authToken', authTokenSchema)
+export default mongoose.model('authToken', authTokenSchema)

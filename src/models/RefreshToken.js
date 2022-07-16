@@ -11,7 +11,4 @@ const authRefreshTokenSchema = new Schema({
 })
 
 // oauthRefreshTokenSchema.set('toJSON', { virtuals: true })
-export const RefreshToken = mongoose.model(
-    'authRefreshToken',
-    authRefreshTokenSchema
-)
+export default mongoose.model('authRefreshToken', authRefreshTokenSchema)

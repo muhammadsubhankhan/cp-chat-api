@@ -18,6 +18,11 @@ import dotenv from 'dotenv'
             extended: true,
         })
     )
+
+    const cors = require('cors')({
+        origin: true,
+    })
+    app.use(cors)
     /**
      * connect to the database wait for the connection then proceed
      */
