@@ -1,10 +1,10 @@
-import { UserModel } from '../../models/User'
+import User from '../../models/User'
 import bcrypt from 'bcryptjs'
 export const signup = async (request, response) => {
     try {
         const { body } = request
 
-        const emailAlreadyExist = await UserModel.findOne({
+        const emailAlreadyExist = await User.findOne({
             email: request.body.email,
         })
         if (emailAlreadyExist) {
@@ -13,7 +13,7 @@ export const signup = async (request, response) => {
         }
         body.password = bcrypt.hashSync(body.password, 10)
 
-        const newUser = new UserModel(body)
+        const newUser = new User(body)
         await newUser.save()
         return response.json({
             message: 'Your account has been created successfully.',

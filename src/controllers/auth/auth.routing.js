@@ -1,7 +1,5 @@
-import { list } from './list.action'
 import { login } from './login.action'
 import { signup } from './signup.action'
-
 module.exports = {
     signup: {
         post: {
@@ -12,12 +10,6 @@ module.exports = {
     login: {
         post: {
             action: login,
-            level: 'public',
-        },
-    },
-    list: {
-        get: {
-            action: list,
             level: 'public',
         },
     },
