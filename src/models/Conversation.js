@@ -3,7 +3,7 @@ const ConversationSchema = new mongoose.Schema(
     {
         user1: { type: Object, required: true },
 
-        receiver: { type: Object, required: true },
+        user2: { type: Object, required: true },
     },
     { timestamps: true }
 )
