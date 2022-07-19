@@ -9,7 +9,9 @@ export const list = async (request, response) => {
         )
         return response.json({ message: 'List of users', data })
     } catch (error) {
-        // eslint-disable-next-line no-console
-        console.log(error)
+        return response.status(500).json({
+            message: 'Whoops. Something went wrong!',
+            error,
+        })
     }
 }

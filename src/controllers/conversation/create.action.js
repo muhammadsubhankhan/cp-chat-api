@@ -43,7 +43,9 @@ export const create = async (request, response) => {
         }
         return response.json({ data })
     } catch (error) {
-        // eslint-disable-next-line no-console
-        console.log(error)
+        return response.status(500).json({
+            message: 'Whoops. Something went wrong!',
+            error,
+        })
     }
 }

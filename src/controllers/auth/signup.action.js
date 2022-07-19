@@ -19,7 +19,9 @@ export const signup = async (request, response) => {
             message: 'Your account has been created successfully.',
         })
     } catch (error) {
-        // eslint-disable-next-line no-console
-        console.log('error', error)
+        return response.status(500).json({
+            message: 'Whoops. Something went wrong!',
+            error,
+        })
     }
 }

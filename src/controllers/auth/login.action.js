@@ -22,7 +22,9 @@ export const login = async (request, response) => {
             data,
         })
     } catch (error) {
-        // eslint-disable-next-line no-console
-        console.log('error', error)
+        return response.status(500).json({
+            message: 'Whoops. Something went wrong!',
+            error,
+        })
     }
 }
