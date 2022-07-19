@@ -26,7 +26,7 @@ import dotenv from 'dotenv'
     /**
      * connect to the database wait for the connection then proceed
      */
-    await require('./database')()
+    await require('./config/database')()
     /**
      * parse the json from body using body parser
      */
@@ -35,7 +35,10 @@ import dotenv from 'dotenv'
             limit: '100mb',
         })
     )
-
+    /*
+     * pass server to socket instances and setup events
+     */
+    const server = require('./config/socket')(app)
     /**
      * Bind routes with express app
      */
@@ -45,7 +48,7 @@ import dotenv from 'dotenv'
         ignore: ['*.spec', '*.action', '*.md'],
         controllers_path: path.join(__dirname, 'controllers'),
     })
-    app.listen(process.env.PORT || 3030, () => {
+    server.listen(process.env.PORT || 3030, () => {
         // eslint-disable-next-line no-console
         console.log(' App is running on ', process.env.PORT || 3030)
     })
